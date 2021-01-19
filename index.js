@@ -19,9 +19,11 @@ port.on("open", () => {
 });
 
 parser.on('data', data => {
-  var pair = data.split(' ');
-  metrics[pair[0]] = pair[1].trim()
   console.log('[SERIAL OUTPUT]', data.trim());
+  var pair = data.trim().split(' ');
+  if (pair.length > 1) {
+    metrics[pair[0]] = pair[1];
+  }
 });
 
 server.listen(8080);
