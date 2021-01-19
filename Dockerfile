@@ -1,4 +1,4 @@
-FROM node:15
+FROM arm64v8/node:15-alpine
 WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./

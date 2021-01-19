@@ -27,5 +27,6 @@ Example HTTP output:
 ```
 
 Docker command:
-
+```
 docker run -d --name serial-metrics --device=/dev/ttyUSB1 --env SENSOR_PORT=/dev/ttyUSB1 -p 8080:8080 wfong/serial-metrics:latest
+```
