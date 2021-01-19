@@ -1,4 +1,5 @@
 FROM arm64v8/node:15-alpine
+COPY qemu-arm-static /usr/bin
 WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./
