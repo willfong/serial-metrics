@@ -9,8 +9,10 @@ const parser = port.pipe(new Readline({ delimiter: '\n' }));
 var metrics = {}
 
 const requestListener = function (req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(metrics));
+  //res.setHeader('Content-Type', 'application/json');
+  //res.end(JSON.stringify(metrics));
+  const response = Object.keys(metrics).map(k => `${k} ${metrics[k]}`).join("\n");
+  res.end(response);
 }
 const server = http.createServer(requestListener);
 
