@@ -30,7 +30,10 @@ void loop() {
 ### Docker command
 
 ```
-docker run -d --name serial-metrics --device=/dev/ttyUSB1 --env SENSOR_PORT=/dev/ttyUSB1 -p 8080:8080 wfong/serial-metrics:latest
+git clone https://github.com/willfong/serial-metrics.git
+cd serial-metrics
+docker build -t serial-metrics .
+docker run -d --restart=always --name serial-metrics --device=/dev/ttyUSB0 --env SENSOR_PORT=/dev/ttyUSB0 -p 8080:8080 serial-metrics:latest
 ```
 
 ### Building for ARM
