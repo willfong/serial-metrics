@@ -21,7 +21,7 @@ port.on("open", () => {
 });
 
 parser.on('data', data => {
-  console.log('[SERIAL OUTPUT]', data.trim());
+  console.log(`[${new Date().toISOString().substring(0, 19)}]`, data.trim());
   var pair = data.trim().split(' ');
   if (pair.length > 1) {
     metrics[pair[0]] = pair[1];
